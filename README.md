@@ -1,8 +1,8 @@
 # CS - 764
 
 ## Group 5:
-Surendra Parla (smparla@wisc.edu) - 908 590 0984
-Srihari Sridharan (sridharan9@wisc.edu) - 908 575 4456
+Surendra Parla (smparla@wisc.edu) - 908 590 0984 \
+Srihari Sridharan (sridharan9@wisc.edu) - 908 575 4456 \
 Neha Chadaga (nchadaga@wisc.edu) - 908 587 6465
 
 ## Techniques Implemented in this Submission:
