@@ -32,14 +32,17 @@ It helps in enabling systems to handle larger workloads that exceed the availabl
 10. Verifying sort order - Verifying the sort order in external sorting ensures the accuracy and correctness of the sorting process, confirming that the sorted output meets the expected order and criteria, which is crucial for data integrity and error detection, especially when dealing with vast amounts of data distributed across multiple storage devices. It acts as a validation step, enhancing reliability and confidence in the sorting results, and reducing the risk of errors or inconsistencies in the sorted data.
 
 ## Commands to Run
- 
-make all \
+ ```
+cd Code
+make all
 ./sort -c "record_count" -s "record_size" -o trace0.txt > trace0.txt
- 
+ ```
 for verification
+```
+cd TestScripts
 g++ TestScript.cpp -o TestScript.o
 ./TestScript.o
- 
+ ```
 in is the input directory \
 out is the output directory
  
