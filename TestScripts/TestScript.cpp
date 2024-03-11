@@ -6,9 +6,9 @@
 #include <set>
 #include <unordered_set>
 #include <limits>
-#include "constants.h"
-#include "Sort.h"
-#include "internal_sort.h"
+#include "../Code/constants.h"
+#include "../Code/Sort.h"
+#include "../Code/internal_sort.h"
 
 using namespace std;
 
@@ -39,8 +39,6 @@ bool verifySets(string inputFile, string outputFile) {
         if (inputRows.find(outputRow) == inputRows.end()) {
             std::cerr << "Mismatch found: Row in output file not present in input file." << std::endl;
             return false;
-        } else {
-            // cout<<"Output row is present\n";
         }
     }
 
@@ -57,7 +55,7 @@ bool verifySortOrder(string outputFile) {
         return false;
     }
 
-    string previousValue = ".";//std::numeric_limits<int>::min();
+    string previousValue = ".";
     string currentValue;
 
     // Check if a[i] >= a[i-1] for each value in the output file
@@ -76,7 +74,7 @@ bool verifySortOrder(string outputFile) {
 }
 
 int main(){
-    verifySortOrder(HDD_OUT_FILE_NAME);
-    verifySets(HDD_FILE_NAME, HDD_OUT_FILE_NAME);
+    verifySortOrder('../Code/' + HDD_OUT_FILE_NAME);
+    verifySets('../Code/' + HDD_FILE_NAME, '../Code/'+ HDD_OUT_FILE_NAME);
     return 0;
 }

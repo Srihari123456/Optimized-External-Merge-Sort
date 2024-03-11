@@ -58,7 +58,7 @@ queue<RecordStructure> Cache::loadDataForRun(int runId)
         j =0;
 
         while(getline(column_stream, column, ',')) {
-            record.members[j] = column;//stoull(column);
+            record.members[j] = column;
             j++;
         }
 

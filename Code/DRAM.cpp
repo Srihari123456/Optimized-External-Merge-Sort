@@ -23,11 +23,8 @@ int DRAM::read(int partition)
     // cout<<"loading into dram: "<<partition<<endl;
     // check the records count left in SSD in this partition
     if (records_in_partition[partition] == 0) {
-        // cout<<"dram cannt comsume from partition: "<<partition<<"records_to_consume "<<records_to_consume<<endl;
-        // cout<<max_partition_size<<"  :  "<<readOffsets[partition]<<endl;
         traceprintf("exhausted current batch of records from ssd in partition %d\n", partition);
-        return -1; // indicating end of partition
-
+        return -1;
     }
 
     // records left in the partition is less than the partition size
@@ -64,7 +61,6 @@ int DRAM::read(int partition)
     delete[] readBuffer;
   
     readOffsets[partition] = inputFile.tellg();
-    // cout<<"ssd end point is "<<readOffsets[partition]<<endl;
     records_in_partition[partition] = records_in_partition[partition] - records_to_consume;
     dramFile.close();
     inputFile.close();
@@ -95,7 +91,6 @@ DRAM::DRAM(int NWAY) : _NWAY(NWAY)
     uint32_t max_records = partition_size / recordsize;
     max_partition_size = RoundDown(DRAM_SIZE_IN_BYTES / NWAY, recordsize);
     TRACE(true);
-    // cout << "Max partition size of DRAM firsr step = " << max_partition_size << endl;
 
     for (int i = 0; i < NWAY; i++)
     {
@@ -125,11 +120,9 @@ DRAM::DRAM(int NWAY, bool is_external_sort) : _NWAY(NWAY)
     // initializing offsets for ssd
     //leave out some space for output buffer in SSD 
     partition_size = RoundDown((0.999*SSD_SIZE_IN_BYTES) / NWAY, recordsize); 
-    // cout<<"max partition size ssd in dram  "<<partition_size<<" final step"<<endl;
+
     uint32_t max_records = partition_size / recordsize;
     max_partition_size = RoundDown(DRAM_SIZE_IN_BYTES / NWAY, recordsize);
-    // cout<<"max partition size dram "<<max_partition_size<<" final step"<<endl;
-    // cout << "Max partition size of DRAM = " << max_partition_size << endl;
 
     for (int i = 0; i < NWAY; i++)
     {

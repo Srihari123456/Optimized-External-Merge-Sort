@@ -10,10 +10,7 @@ using namespace std;
 
 bool customComparator(const RecordStructure &a, const RecordStructure &b)
 {
-    // if (a.members[0] != b.members[0])
-    // {
-        return a.members[0] < b.members[0];
-    // }
+    return a.members[0] < b.members[0];
 }
 
 std::vector<RecordStructure> read_ramfile()
@@ -41,19 +38,12 @@ std::vector<RecordStructure> read_ramfile()
 
         int j = 0;
         while(std::getline(ss, column, ',')) {
-            record.members[j] = column;//stoull(column);
+            record.members[j] = column;
             j++;
         }
-        // char delimiter = ',';
-        // ss >> record.members[0] >> delimiter;
-        // ss >> record.members[1] >> delimiter;
-        // ss >> record.members[2] >> delimiter;
-        // ss >> record.members[3];
-        // cout<<"Internal sort:: Record member[0].length = "<<record.members[0].length()<<endl;
         arr.push_back(record);
     }
     input_file.close();
-    //cout << "array size after reading " << arr.size() << endl;
     return arr;
 }
 void write_ramfile(std::vector<RecordStructure> &arr)

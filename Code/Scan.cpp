@@ -75,7 +75,6 @@ bool ScanIterator::next()
             std::cerr << "Error opening file for appending." << std::endl;
             return 1;
         }
-        // outputFile << rs.members[0] << "," << rs.members[1] << "," << rs.members[2] << "," << rs.members[3] << "\n";
         outputFile << rs.members[0] << "," << rs.members[1] << "," << rs.members[2];
         if(!rs.members[3].empty()){
             outputFile << "," << rs.members[3];
